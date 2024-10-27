@@ -2,9 +2,8 @@ import Invoice from "../models/invoiceModel.js";
 
 export const saveToDb = async (req, res) => {
     try {
-        console.log(req.file)
         const { items, discount, shipping, tax, amountPaid,balanceDue,data } = req.body;
-        //   console.log(items, discount, shipping, tax, amountPaid,balanceDue,data)
+          console.log(data.companyInfo.logo)
           const newInvoice = new Invoice({
             items:items,
             discount: discount,
@@ -23,7 +22,6 @@ export const saveToDb = async (req, res) => {
             terms: data.terms,
             footNote: data.footNote
           });
-        console.log(newInvoice)
         await newInvoice.save();
         console.log('saved')
         res.status(200).json({succcess:true,message:'invoice saved to DB'})
