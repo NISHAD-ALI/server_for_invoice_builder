@@ -15,7 +15,7 @@ app.use(
     credentials: true,
   })
 );
-
+console.log(process.env.MONGOURL)
 mongoose.connect(process.env.MONGOURL)
   .then(() => console.log("DB connected"))
   .catch((err) => console.log(err.message));
