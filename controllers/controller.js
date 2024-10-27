@@ -35,7 +35,7 @@ export const saveToDb = async (req, res) => {
 
 export const getInvoices = async (req, res) => {
     try {
-
+        console.log('hi')
         let data = await Invoice.find()
         console.log(data)
         if (data) {
@@ -44,6 +44,6 @@ export const getInvoices = async (req, res) => {
             res.status(402).json({ success: false, message: 'Failed to get ivoices' })
         }
     } catch (error) {
-        res.status(500).json({ success: false, message: 'Internal server error!' });
+        res.status(500).json({ success: false, message: 'Internal server error1!' });
     }
 }
